@@ -1,11 +1,29 @@
 {
   "name": "quos",
   "version": "1.0.0",
-  "description": "",
+  "description": "Multi-object State Machine.",
   "main": "index.js",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "colors": "^1.1.2"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianOsuna/node-quos.git"
+  },
+  "keywords": [
+    "state",
+    "machine",
+    "multiobject"
+  ],
+  "author": "Sebastian Osuna <jsebastianosuna@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SebastianOsuna/node-quos/issues"
+  },
+  "homepage": "https://github.com/SebastianOsuna/node-quos#readme"
 }
