@@ -90,7 +90,7 @@ StateMachine.prototype.addObject = function (object) {
 
 StateMachine.prototype._serialize = function () {
   return {
-    objectRegistry: Object.keys(this.objectRegistry).map(function (k) { return { o: this.objectRegistry[k].o, s: this.objectRegistry[k].s.name }; }),
+    objectRegistry: Object.keys(this.objectRegistry).map(function (k) { return { o: this.objectRegistry[k].o, s: this.objectRegistry[k].s.name }; }.bind(this)),
     timers: this.timers.map(function (t) { return t.serialize(); })
   };
 };
