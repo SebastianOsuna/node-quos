@@ -34,4 +34,14 @@ Timer.prototype.clear = function () {
   this.timeout && clearTimeout(this.timeout);
 };
 
+Timer.prototype.serialize = function () {
+  return {
+    q: this.q,
+    timeunit: this.timeunit,
+    event: this.event,
+    objectId: this.objectId,
+    time: this.time.utc().format()
+  };
+};
+
 module.exports = Timer;

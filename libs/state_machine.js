@@ -88,4 +88,11 @@ StateMachine.prototype.addObject = function (object) {
   state.addObject(object);
 };
 
+StateMachine.prototype._serialize = function () {
+  return {
+    objectRegistry: Object.keys(this.objectRegistry).map(function (k) { return { o: this.objectRegistry[k].o, s: this.objectRegistry[k].s.name }; }),
+    timers: this.timers.map(function (t) { return t.serialize(); })
+  };
+};
+
 module.exports = StateMachine;

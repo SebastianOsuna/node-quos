@@ -68,4 +68,5 @@ State.prototype.on = function (event, newState) {
   }.bind(this));
 };
 
+
 module.exports = State;
