@@ -31,7 +31,7 @@ Timer.prototype.trigger = function (event, objectId) {
 Stop timer. Prevents the triggering of the event.
 */
 Timer.prototype.clear = function () {
-  this.timeout && clearTimeout(this.timeout);
+  this.timeout && clearTimeout(this.timeout) || (this.timeout = undefined);
 };
 
 Timer.prototype.serialize = function () {
@@ -42,6 +42,13 @@ Timer.prototype.serialize = function () {
     objectId: this.objectId,
     time: this.time.utc().format()
   };
+};
+
+Timer._initialize = function (t, stateMachine) {
+  var timer = new Timer(t.q, t.timeunit, stateMachine);
+  timer.time = moment(t.time);
+  timer.trigger(t.event, t.objectId);
+  return timer;
 };
 
 module.exports = Timer;

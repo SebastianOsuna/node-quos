@@ -95,4 +95,23 @@ StateMachine.prototype._serialize = function () {
   };
 };
 
+StateMachine.prototype._initialize = function (machine) {
+  // Initialize registry
+  machine.objectRegistry.forEach(function (obj) {
+    var state = this.states[obj.s];
+    if (!state) {
+      return console.log('Could not initialize object ' + obj.o.id + '. State ' + obj.s + ' not found.');
+    }
+    this.objectRegistry[obj.o.id] = {
+      o: obj.o,
+      s: state
+    };
+  }.bind(this));
+
+  // Initialize timers
+  machine.timers.forEach(function (t) {
+    this.timers.push(Timer._initialize(t, this));
+  }.bind(this));
+};
+
 module.exports = StateMachine;
